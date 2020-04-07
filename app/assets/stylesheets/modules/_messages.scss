@@ -1,0 +1,170 @@
+@import "mixin";
+@import "variable";
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper{
+  display: flex;
+}
+
+.side_bar{
+  width: 300px;
+  color: $whiteColor;
+  font-weight: bold;
+}
+
+.side_header{
+  background-color: #253141;
+  height: $headerHight;
+  @include vertical_center_alignment();
+  &__box{
+    height: $sideHeaderBoxHeight;
+    @include side_contents_position();
+    @include space_between();
+    &__user_name{
+      line-height: $sideHeaderBoxHeight;
+    }
+    &__action{
+      line-height: $sideHeaderBoxHeight;
+      display: flex;
+      &__create_group{
+        @include clear_decoration();
+      }
+      &__edit_user{
+        @include clear_decoration();
+        padding-left: 5px;
+      }
+    }
+  }
+}
+
+.groups{
+  background-color: #2f3e51;
+  height: calc(100vh - 100px);
+  a{
+    @include clear_decoration();
+    cursor: pointer;
+    .group{
+      @include side_contents_position();
+      &__group_name{
+        font-size: 15px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+      }
+      &__notification{
+        font-size: 11px;
+        padding-bottom: 40px;
+      }
+    }
+  }
+}
+
+.main_chat{
+  width: calc(100vw - 300px);
+}
+
+.main_header{
+  background-color: $whiteColor;
+  border-bottom: solid 1px #eeeeee ;
+  height: $headerHight;
+  @include space_between();
+  padding: 0 40px;
+  &__left_box{
+    &__group_name{
+      padding-top: 35px;
+      padding-bottom: 15px;
+      color: $mainHeadingColor;
+      font-size: 20px;
+    }
+    &__member_list{
+      color: $mainSubHeadingColor;
+      font-size: 12px;
+      display: flex;
+    }
+  }
+  &__right_box{
+    text-decoration: none;
+    &__Edit_btn{
+      color: $btnColor;
+      font-size: 16px;
+      height: 40px;
+      width: 72px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 28px;
+      border: solid 1px;
+    }
+  }
+
+}
+
+.messages{
+  background-color: #fafafa;
+  height: calc(100vh - 190px);
+}
+
+.message{
+  padding-left: 40px;
+  padding-top: 35px;
+  padding-bottom: 11px;
+  &__first_line{
+    @include vertical_center_alignment();
+    padding-bottom: 12px;
+    &__user_name{
+      color: $mainHeadingColor;
+      font-size: 16px;
+    }
+    &__date{
+      color: $mainSubHeadingColor;
+      font-size: 12px;
+      padding-left: 20px;
+    }
+  }
+  &__second_line{
+    color: #434A54;
+    font-size: 14px;
+  }
+}
+
+.form{
+  background-color: #d2d2d2;
+  height: 90px;
+}
+
+.message_form{
+  padding: 20px 40px;
+  display: flex;
+}
+
+.enter_message{
+  width: 100%;
+  display: flex;
+  position: relative;
+  &__text_box{
+    padding: 0 10px;
+    height: $formHeight;
+    width: 100%;
+  }
+  &__attach_image{
+    line-height: $formHeight;
+    font-size: 25px;
+    padding-right: 10px;
+    cursor: pointer;
+    position: absolute;
+      right: 0;
+    &__hide{
+      display: none;
+    }
+  }
+}
+
+.submit_btn{
+  background-color: $btnColor;
+  color: $whiteColor;
+  height: $formHeight;
+  width: 100px;
+  margin-left: 15px;
+  cursor: pointer;
+}
