@@ -1,0 +1,24 @@
+.side_bar
+  .side_header
+    .side_header__box  
+      %p.side_header__box__user_name yae
+      %ul.side_header__box__action
+        %li
+          = link_to "#", class:"side_header__box__action__create_group" do
+            = icon('far', 'edit')
+        %li
+          = link_to "#", class:"side_header__box__action__edit_user" do
+            = icon('fas', 'cog')
+  .groups
+    = link_to "#" do
+      .group
+        %p.group__group_name techcamp
+        %p.group__notification まだメッセージがありません
+    = link_to "#" do
+      .group
+        %p.group__group_name techcamp
+        %p.group__notification まだメッセージがありません
+    = link_to "#" do
+      .group
+        %p.group__group_name techcamp
+        %p.group__notification まだメッセージがありません
