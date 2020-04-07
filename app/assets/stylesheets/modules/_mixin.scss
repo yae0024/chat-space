@@ -1,0 +1,19 @@
+@mixin clear_decoration(){
+  color: #ffffff;
+  text-decoration: none;
+}
+
+@mixin space_between(){
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin vertical_center_alignment(){
+  display: flex;
+  align-items: center;
+}
+
+@mixin side_contents_position(){
+  width: 260px;
+  margin: 0 auto;
+}
