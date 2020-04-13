@@ -131,11 +131,10 @@
 .form{
   background-color: #d2d2d2;
   height: 90px;
-}
-
-.message_form{
-  padding: 20px 40px;
-  display: flex;
+  form{
+    padding: 20px 40px;
+    display: flex;
+  }
 }
 
 .enter_message{
