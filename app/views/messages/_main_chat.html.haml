@@ -1,33 +1,22 @@
 .main_chat
   .main_header
     .main_header__left_box
-      %p.main_header__left_box__group_name techcamp
+      %p.main_header__left_box__group_name
+        = @group.name
       %ul.main_header__left_box__member_list 
         Member：  
-        %li  yae
-    = link_to "#", class: "main_header__right_box"do
+        %li
+          - @members.each do |member|
+            = member.name
+    = link_to edit_group_path(@group), class: "main_header__right_box"do
       .main_header__right_box__Edit_btn Edit
   .messages
-    .message
-      .message__first_line
-        %p.message__first_line__user_name yae
-        %p.message__first_line__date 2020/04/06(Mon) 11:45:11
-      %p.message__second_line ここにメッセージを表示
-    .message
-      .message__first_line
-        %p.message__first_line__user_name yae
-        %p.message__first_line__date 2020/04/06(Mon) 11:45:11
-      %p.message__second_line ここにメッセージを表示
-    .message
-      .message__first_line
-        %p.message__first_line__user_name yae
-        %p.message__first_line__date 2020/04/06(Mon) 11:45:11
-      %p.message__second_line ここにメッセージを表示
+    = render @messages
   .form
-    %form.message_form
+    = form_for [@group, @message] do |f|
       .enter_message
-        %input.enter_message__text_box{type:"text", placeholder:"type a message"}
-        %label{class:"enter_message__attach_image"}
-          = icon('far', 'image')
-          %input{type:"file", class:"enter_message__attach_image__hide"}
-      %input{type:"submit", value:"send", class:"submit_btn"}
+        = f.text_field :body, class: 'enter_message__text_box', placeholder: 'type a message'
+        = f.label :image, class: 'enter_message__attach_image' do
+          = icon('fas', 'image')
+          = f.file_field :image, class: 'enter_message__attach_image__hide'
+      = f.submit 'Send', class: 'submit_btn'

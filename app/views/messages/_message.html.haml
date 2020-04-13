@@ -1,0 +1,11 @@
+.message
+  .message__first_line
+    %p.message__first_line__user_name
+      = message.user.name
+    %p.message__first_line__date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  %p.message__second_line
+    - if message.body.present?
+      %p
+        = message.body
+    = image_tag message.image.url, class: 'message__second_line__image' if message.image.present?
