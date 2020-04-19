@@ -4,10 +4,10 @@
       %p.main_header__left_box__group_name
         = @group.name
       %ul.main_header__left_box__member_list 
-        Member：  
+        Member：
         %li
-          - @members.each do |member|
-            = member.name
+        - @members.each do |member|
+          = member.name
     = link_to edit_group_path(@group), class: "main_header__right_box"do
       .main_header__right_box__Edit_btn Edit
   .messages
