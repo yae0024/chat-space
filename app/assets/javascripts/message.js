@@ -61,6 +61,7 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     });
   });
+
   var reloadMessages = function() {
     var last_message_id = $('.message:last').data("message-id");
     $.ajax({
@@ -83,5 +84,7 @@ $(function(){
       alert('error');
     });
   };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
   }
 });
